@@ -45,6 +45,7 @@ public class LoginFragment extends Fragment {
 
                 if(userTextFieldStr.isEmpty() || passwordTextFieldStr.isEmpty()){
                     Log.i("LOGIN","USER OR PASSWORD IS EMPTY");
+                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new MenuFragment()).addToBackStack(null).commit();
                     Toast.makeText(getActivity(), "กรุณาระบุ Username หรือ Password",Toast.LENGTH_SHORT).show();
                 }else if(userTextField.equals("admin") && passwordTextField.equals("admin")){
                     Log.i("LOGIN","INVALID USER OR PASSWORD");
