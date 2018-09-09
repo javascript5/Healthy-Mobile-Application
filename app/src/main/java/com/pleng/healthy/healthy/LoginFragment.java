@@ -53,7 +53,7 @@ public class LoginFragment extends Fragment {
 
                 }else{
                     Log.i("LOGIN","GO BMI");
-                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new BMIFragment()).addToBackStack(null).commit();
+                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new WeightFragment()).addToBackStack(null).commit();
                 }
             }
 
