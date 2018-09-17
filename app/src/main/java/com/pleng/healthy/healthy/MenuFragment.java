@@ -10,6 +10,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.pleng.healthy.healthy.Weight.WeightForm;
+import com.pleng.healthy.healthy.Weight.WeightFragment;
+
 import java.util.ArrayList;
 
 public class MenuFragment extends Fragment {
@@ -40,7 +43,7 @@ public class MenuFragment extends Fragment {
                 }else if(menuPosition.equals("Add Weight")){
                     getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new WeightForm()).addToBackStack(null).commit();
                 }else if(menuPosition.equals("Logout")){
-                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new LoginFragment()).addToBackStack(null).commit();
+                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new LogoutFragment()).addToBackStack(null).commit();
                 }else{
                     getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new WeightFragment()).addToBackStack(null).commit();
                 }

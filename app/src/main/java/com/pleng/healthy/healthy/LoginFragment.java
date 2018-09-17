@@ -59,7 +59,7 @@ public class LoginFragment extends Fragment {
                    Toast.makeText(getActivity(), "กรุณาระบุ Username หรือ Password",Toast.LENGTH_SHORT).show();
                 }else if(userTextField.equals("admin") && passwordTextField.equals("admin")){
                     Log.i("LOGIN","INVALID USER OR PASSWORD");
-                    Toast.makeText(getActivity(), "Username และ Password ไม่ถูกต้อง",Toast.LENGTH_SHORT);
+                    Toast.makeText(getActivity(), "Username และ Password ไม่ถูกต้อง",Toast.LENGTH_SHORT).show();
 
                 }else{
                     final FirebaseAuth mAuth = FirebaseAuth.getInstance();
@@ -69,13 +69,17 @@ public class LoginFragment extends Fragment {
                             if(authResult.getUser().isEmailVerified()){
                                 Log.i("LOGIN", "Complete");
                                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new MenuFragment()).addToBackStack(null).commit();
+                            }else{
+                                Toast.makeText(getActivity(), "กรุณายืนยัน E-Mail", Toast.LENGTH_SHORT).show();
+                                Log.i("LOGIN", "กรุณายืนยัน E-Mail");
                             }
 
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Log.i("LOGIN", "Failed");
+
+                            Toast.makeText(getActivity(), e.getMessage().toString(), Toast.LENGTH_SHORT).show();
                         }
                     });
 
