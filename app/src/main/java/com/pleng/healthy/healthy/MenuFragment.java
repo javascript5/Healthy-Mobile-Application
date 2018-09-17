@@ -18,6 +18,8 @@ public class MenuFragment extends Fragment {
     public MenuFragment(){
         menu.add("BMI");
         menu.add("Weight");
+        menu.add("Add Weight");
+        menu.add("Logout");
     }
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -35,6 +37,10 @@ public class MenuFragment extends Fragment {
                 String menuPosition = menu.get(position);
                 if(menuPosition.equals("BMI")){
                     getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new BMIFragment()).addToBackStack(null).commit();
+                }else if(menuPosition.equals("Add Weight")){
+                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new WeightForm()).addToBackStack(null).commit();
+                }else if(menuPosition.equals("Logout")){
+                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new LoginFragment()).addToBackStack(null).commit();
                 }else{
                     getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new WeightFragment()).addToBackStack(null).commit();
                 }

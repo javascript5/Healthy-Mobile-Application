@@ -1,6 +1,7 @@
 package com.pleng.healthy.healthy;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -11,7 +12,16 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import static android.R.attr.onClick;
+import static android.content.ContentValues.TAG;
 
 
 /**
@@ -27,6 +37,7 @@ public class LoginFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_login, container, false);
 
     }
+
 
     @Override
     public void onActivityCreated(@Nullable final Bundle savedInstanceState) {
@@ -45,15 +56,30 @@ public class LoginFragment extends Fragment {
 
                 if(userTextFieldStr.isEmpty() || passwordTextFieldStr.isEmpty()){
                     Log.i("LOGIN","USER OR PASSWORD IS EMPTY");
-                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new MenuFragment()).addToBackStack(null).commit();
-                    Toast.makeText(getActivity(), "กรุณาระบุ Username หรือ Password",Toast.LENGTH_SHORT).show();
+                   Toast.makeText(getActivity(), "กรุณาระบุ Username หรือ Password",Toast.LENGTH_SHORT).show();
                 }else if(userTextField.equals("admin") && passwordTextField.equals("admin")){
                     Log.i("LOGIN","INVALID USER OR PASSWORD");
                     Toast.makeText(getActivity(), "Username และ Password ไม่ถูกต้อง",Toast.LENGTH_SHORT);
 
                 }else{
-                    Log.i("LOGIN","GO BMI");
-                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new WeightFragment()).addToBackStack(null).commit();
+                    final FirebaseAuth mAuth = FirebaseAuth.getInstance();
+                    mAuth.signInWithEmailAndPassword(userTextFieldStr, passwordTextFieldStr).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                        @Override
+                        public void onSuccess(AuthResult authResult) {
+                            if(authResult.getUser().isEmailVerified()){
+                                Log.i("LOGIN", "Complete");
+                                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new MenuFragment()).addToBackStack(null).commit();
+                            }
+
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.i("LOGIN", "Failed");
+                        }
+                    });
+
+
                 }
             }
 

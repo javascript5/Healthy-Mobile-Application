@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/date_for_weighting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="วันที่ชั่ง วัน เดือน ปี" />
+    <EditText
+        android:id="@+id/weight_for_weighting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="น้ำหนัก (kg)"
+        android:inputType="numberDecimal" />
+    <Button
+        android:id="@+id/save_weight_form"
+        android:text="บันทึก"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

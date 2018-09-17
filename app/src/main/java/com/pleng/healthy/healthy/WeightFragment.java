@@ -2,6 +2,7 @@ package com.pleng.healthy.healthy;
 
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,6 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 
@@ -21,6 +28,8 @@ public class WeightFragment extends Fragment {
         weightStore.add(new WeightStore(50,"10-jul-50","UP"));
         weightStore.add(new WeightStore(60,"10-jul-50","UP"));
         weightStore.add(new WeightStore(70,"10-jul-50","UP"));
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
         ListView weightList = (ListView) getView().findViewById(R.id.weight_list);
         WeightConfigItem weightConfigItem =  new WeightConfigItem(
                 getActivity(),

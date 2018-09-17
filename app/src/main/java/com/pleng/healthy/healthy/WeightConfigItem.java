@@ -14,7 +14,7 @@ import java.util.List;
 
 public class WeightConfigItem extends ArrayAdapter<WeightStore>{
 
-    List<WeightStore> weightStore = new ArrayList<WeightStore>();
+    List<WeightStore> weightStore = new ArrayList<>();
     Context context;
 
     public WeightConfigItem(@NonNull Context context, int resource,List<WeightStore> list) {
