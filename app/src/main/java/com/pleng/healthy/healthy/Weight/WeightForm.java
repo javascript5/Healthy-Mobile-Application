@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,10 +17,10 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.pleng.healthy.healthy.CheckStatus;
-import com.pleng.healthy.healthy.CurrentUser;
 import com.pleng.healthy.healthy.R;
 import com.pleng.healthy.healthy.Weight.WeightFragment;
 import com.pleng.healthy.healthy.Weight.WeightStore;
@@ -38,11 +39,11 @@ public class WeightForm extends Fragment {
     Calendar mCurrentDate;
     int year, month, day;
     String dayStr, monthStr;
-    FirebaseUser currentFirebaseUser;
-    String uid, dateStr;
-    CurrentUser currentUser = new CurrentUser();
+    FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+    String uid, dateStr, weightStr;
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+
         dateField = (TextView) getView().findViewById(R.id.date_for_weight_page);
         weight = (TextView) getView().findViewById(R.id.weight_for_weight_page);
         super.onActivityCreated(savedInstanceState);
@@ -54,12 +55,7 @@ public class WeightForm extends Fragment {
         year = mCurrentDate.get(Calendar.YEAR);
 
         //When Click and OnFoucus Date Field Show Date Picker
-        dateField.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if(hasFocus){ datePickerPopup(dateField);}
-            }
-        });
+
         dateField.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,37 +64,49 @@ public class WeightForm extends Fragment {
         });
 
 
+
+
         Button saveWeightButton = (Button) getView().findViewById(R.id.save_weight_form);
-        uid = currentUser.getUidStr();
+        uid = currentFirebaseUser.getUid().toString();
 
         //When Click Save Button
         saveWeightButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Create Fire Store
-                FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-                //Get Weight Obj
-                WeightStore weightStore = new WeightStore(Float.parseFloat(weight.getText().toString()) ,dateField.getText().toString(),"up");
+                dateStr = dateField.getText().toString();
+                weightStr = weight.getText().toString();
 
-                //Send Data To Database
-                firestore.collection("myfitness")
-                        .document(uid)
-                        .collection("weight")
-                        .document(dateField.getText().toString())
-                        .set(weightStore)
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Toast.makeText(getActivity(), "เพิ่มข้อมูลเรียบร้อยแล้ว",Toast.LENGTH_LONG).show();
-                        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new WeightFragment()).addToBackStack(null).commit();
-                    }
-                }).addOnFailureListener(new OnFailureListener(){
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(getActivity(), e.getMessage(),Toast.LENGTH_LONG).show();
-                    }
-                });
+                Log.i("WeightForm",  weight+""+dateStr);
 
+
+                if(dateStr.isEmpty() || weightStr.isEmpty()){
+                    Toast.makeText(getActivity(), "กรุณากรอกข้อมูลให้ครบถ้วน", Toast.LENGTH_SHORT).show();
+                }else {
+
+                    //Create Fire Store
+                    FirebaseFirestore db = FirebaseFirestore.getInstance();
+                    //Get Weight Obj
+                    final WeightStore weightStore = new WeightStore(Float.parseFloat(weight.getText().toString()), dateField.getText().toString(), "-");
+                    //Send Data To Database
+                    db.collection("myfitness")
+                            .document(uid)
+                            .collection("weight")
+                            .document(dateField.getText().toString())
+                            .set(weightStore)
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Toast.makeText(getActivity(), "เพิ่มข้อมูลเรียบร้อยแล้ว", Toast.LENGTH_LONG).show();
+                                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new WeightFragment()).addToBackStack(null).commit();
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_LONG).show();
+                            Log.i("WeightForm", e.getMessage());
+                        }
+                    });
+                }
             }
         });
 

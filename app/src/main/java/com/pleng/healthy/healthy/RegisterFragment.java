@@ -90,7 +90,7 @@ public class RegisterFragment extends Fragment{
                             public void onSuccess(AuthResult authResult) {
                                 Log.i("Register", "Complete");
                                 sendVerifiedEmail(authResult.getUser());
-                                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new LoginFragment()).addToBackStack(null).commit();
+                                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new LogoutFragment()).addToBackStack(null).commit();
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
