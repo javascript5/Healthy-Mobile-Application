@@ -33,6 +33,7 @@ public class MenuFragment extends Fragment {
           android.R.layout.simple_list_item_1,
                 menu
         );
+
         menuList.setAdapter(menuAdapter);
         menuList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

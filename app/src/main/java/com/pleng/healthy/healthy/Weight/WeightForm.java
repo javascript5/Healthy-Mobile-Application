@@ -18,6 +18,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.pleng.healthy.healthy.CheckStatus;
 import com.pleng.healthy.healthy.CurrentUser;
 import com.pleng.healthy.healthy.R;
 import com.pleng.healthy.healthy.Weight.WeightFragment;
@@ -36,13 +37,14 @@ public class WeightForm extends Fragment {
     TextView dateField, weight;
     Calendar mCurrentDate;
     int year, month, day;
+    String dayStr, monthStr;
     FirebaseUser currentFirebaseUser;
     String uid, dateStr;
     CurrentUser currentUser = new CurrentUser();
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        dateField = (TextView) getView().findViewById(R.id.date_for_weighting);
-        weight = (TextView) getView().findViewById(R.id.weight_for_weighting);
+        dateField = (TextView) getView().findViewById(R.id.date_for_weight_page);
+        weight = (TextView) getView().findViewById(R.id.weight_for_weight_page);
         super.onActivityCreated(savedInstanceState);
 
         //Get Current Date
@@ -73,7 +75,6 @@ public class WeightForm extends Fragment {
         saveWeightButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 //Create Fire Store
                 FirebaseFirestore firestore = FirebaseFirestore.getInstance();
                 //Get Weight Obj
@@ -105,10 +106,23 @@ public class WeightForm extends Fragment {
     }
 
     void datePickerPopup(final TextView field){
+
         DatePickerDialog  datePickerDialog = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                field.setText(dayOfMonth+"-"+month+"-"+year);
+
+                if(month < 10){
+                    monthStr = "0" + month;
+                }else{
+                    monthStr = month+"";
+                }
+
+                if(dayOfMonth < 10){
+                    dayStr  = "0" + dayOfMonth ;
+                }else{
+                    dayStr = dayOfMonth+"";
+                }
+                field.setText(year+"-"+monthStr+"-"+dayStr);
             }
         }, year, month, day);
         datePickerDialog.show();

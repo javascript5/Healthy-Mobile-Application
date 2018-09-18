@@ -15,10 +15,14 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.pleng.healthy.healthy.CheckStatus;
 import com.pleng.healthy.healthy.CurrentUser;
 import com.pleng.healthy.healthy.R;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class WeightFragment extends Fragment {
     String uid;
@@ -28,7 +32,7 @@ public class WeightFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-//        weightStore.add(new WeightStore(50,"10-jul-50","UP"));
+
         this.uid = currentUser.getUidStr();
         final ListView weightList = (ListView) getView().findViewById(R.id.weight_list);
         final WeightConfigItem weightConfigItem =  new WeightConfigItem(
@@ -36,6 +40,8 @@ public class WeightFragment extends Fragment {
                 R.layout.fragment_weight_items,
                 weightStore
         );
+
+
         weightList.setAdapter(weightConfigItem);
         weightConfigItem.clear();
 
@@ -48,10 +54,20 @@ public class WeightFragment extends Fragment {
                         weightStore.add(doc.toObject(WeightStore.class));
                     }
                 }
+                weightConfigItem.sort(new Comparator<WeightStore>() {
+                    @Override
+                    public int compare(WeightStore o1, WeightStore o2) {
+                        return o2.getDate().compareTo(o1.getDate());
+                    }
+                });
                 weightConfigItem.notifyDataSetChanged();
+
 
             }
         });
+
+        CheckStatus checkStatus = new CheckStatus();
+
 
 
 

@@ -29,7 +29,8 @@ import static android.content.ContentValues.TAG;
  */
 
 public class LoginFragment extends Fragment {
-
+    CurrentUser currentUser = new CurrentUser();
+    FirebaseUser _user = currentUser.getCurrentFirebaseUser();
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -45,6 +46,10 @@ public class LoginFragment extends Fragment {
 
 
         Button loginButton = (Button) getView().findViewById(R.id.login_button);
+        if(_user != null){
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view,new MenuFragment()).addToBackStack(null).commit();
+        }
+
         loginButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {

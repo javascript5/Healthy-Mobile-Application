@@ -38,7 +38,7 @@ public class WeightConfigItem extends ArrayAdapter<WeightStore>{
         TextView date = (TextView)weightItem.findViewById(R.id.weight_fragment_date);
         TextView status = (TextView)weightItem.findViewById(R.id.weight_fragment_status);
 
-        weight.setText(weightStore.get(position).getWeight()+"");
+        weight.setText(weightStore.get(position).getWeight()+" Kg.");
         date.setText(weightStore.get(position).getDate());
         status.setText(weightStore.get(position).getStatus());
 
