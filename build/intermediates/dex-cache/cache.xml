@@ -3,69 +3,6 @@
 
     <item
         is-multidex="false"
-        jar="/Users/pleng/Desktop/Healthy-Mobile-Application/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth/11.8.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.3"
-        sha1="c5bc72ad3250d065128d1d7514279be703e57bd0">
-        <dex dex="/Users/pleng/Desktop/Healthy-Mobile-Application/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-auth-11.8.0_dea752275a64e4d663f0d63a6ddba9d43ada2ca8.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/pleng/Desktop/Healthy-Mobile-Application/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/11.8.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.3"
-        sha1="e6aeff19a2ce1eb896557be73cb9ceb56f8d1cf3">
-        <dex dex="/Users/pleng/Desktop/Healthy-Mobile-Application/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-common-11.8.0_d0134a38b5e3b11ad46c4ec9ea973d69034d2a13.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/pleng/Desktop/Healthy-Mobile-Application/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/11.8.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.3"
-        sha1="264ad23f9752aabecfa41115c52a25a023a08839">
-        <dex dex="/Users/pleng/Desktop/Healthy-Mobile-Application/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-iid-11.8.0_e441f2fdaf5fd3f2dd50499e0017b322490028d8.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/pleng/Desktop/Healthy-Mobile-Application/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/11.8.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.3"
-        sha1="122de0d704f76d2bb5cb9db66e00fe90a0a41e78">
-        <dex dex="/Users/pleng/Desktop/Healthy-Mobile-Application/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-analytics-impl-11.8.0_f03362484a73ee17214f71708611c64a39044ec2.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/pleng/Desktop/Healthy-Mobile-Application/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.2.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.3"
-        sha1="67eb33110dbacb46a48175b08ae0c96761d2c17d">
-        <dex dex="/Users/pleng/Desktop/Healthy-Mobile-Application/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-25.2.0_943c6f316a93ec2550bd2952198c8e64b903ec20.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/pleng/Desktop/Healthy-Mobile-Application/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.2.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.3"
-        sha1="ee394a892dd21c03a528139c1e8d4e0e1264ac84">
-        <dex dex="/Users/pleng/Desktop/Healthy-Mobile-Application/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-25.2.0_cb4af79d1f25e287d5a6471bc90a47e44058cb13.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/pleng/Desktop/Healthy-Mobile-Application/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database-connection/11.8.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.3"
-        sha1="ed04a0ae7198b0d5d0e965d6afdb0fe784dcfbee">
-        <dex dex="/Users/pleng/Desktop/Healthy-Mobile-Application/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-database-connection-11.8.0_faa06e5bd914bb6d45fd89a466631b250155c39b.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="/Users/pleng/Desktop/Healthy-Mobile-Application/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/11.8.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"
@@ -84,6 +21,24 @@
     </item>
     <item
         is-multidex="false"
+        jar="/Users/pleng/Desktop/Healthy-Mobile-Application/app/build/intermediates/exploded-aar/com.android.support.constraint/constraint-layout/1.1.3/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="b15c6ded887ad967e20bb335c1a121b253c04dce">
+        <dex dex="/Users/pleng/Desktop/Healthy-Mobile-Application/app/build/intermediates/pre-dexed/debug/com.android.support.constraint-constraint-layout-1.1.3_a3ee39d6a8c4c7b6543b81c818e3f4967f6e85d2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/pleng/Desktop/Healthy-Mobile-Application/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth/11.8.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="c5bc72ad3250d065128d1d7514279be703e57bd0">
+        <dex dex="/Users/pleng/Desktop/Healthy-Mobile-Application/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-auth-11.8.0_dea752275a64e4d663f0d63a6ddba9d43ada2ca8.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/Users/pleng/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp/2.7.2/20f6463eb19ac61960c5d91a094c2f4f0727dc2e/okhttp-2.7.2.jar"
         jumboMode="false"
         optimize="true"
@@ -99,6 +54,24 @@
         revision="24.0.3"
         sha1="d2af2ef4d987d753f2e8ee2d1480ab964d5c7273">
         <dex dex="/Users/pleng/Desktop/Healthy-Mobile-Application/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-tasks-11.8.0_b43b17f8e0cf07f11251366b98ec7f65d73d8445.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/pleng/Desktop/Healthy-Mobile-Application/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/11.8.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="e6aeff19a2ce1eb896557be73cb9ceb56f8d1cf3">
+        <dex dex="/Users/pleng/Desktop/Healthy-Mobile-Application/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-common-11.8.0_d0134a38b5e3b11ad46c4ec9ea973d69034d2a13.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/pleng/Desktop/Healthy-Mobile-Application/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/11.8.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="264ad23f9752aabecfa41115c52a25a023a08839">
+        <dex dex="/Users/pleng/Desktop/Healthy-Mobile-Application/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-iid-11.8.0_e441f2fdaf5fd3f2dd50499e0017b322490028d8.jar" />
     </item>
     <item
         is-multidex="false"
@@ -138,6 +111,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="/Users/pleng/Desktop/Healthy-Mobile-Application/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/11.8.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="122de0d704f76d2bb5cb9db66e00fe90a0a41e78">
+        <dex dex="/Users/pleng/Desktop/Healthy-Mobile-Application/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-analytics-impl-11.8.0_f03362484a73ee17214f71708611c64a39044ec2.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/Users/pleng/Desktop/Healthy-Mobile-Application/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.2.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"
@@ -153,6 +135,24 @@
         revision="24.0.3"
         sha1="fa0446a14ed5dd3725047d6399ffea771a564b30">
         <dex dex="/Users/pleng/Desktop/Healthy-Mobile-Application/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-25.2.0_db4c240f76953efd6a569ef20b9f66a4cde62881.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/pleng/Desktop/Healthy-Mobile-Application/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="67eb33110dbacb46a48175b08ae0c96761d2c17d">
+        <dex dex="/Users/pleng/Desktop/Healthy-Mobile-Application/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-25.2.0_943c6f316a93ec2550bd2952198c8e64b903ec20.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/pleng/Desktop/Healthy-Mobile-Application/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="ee394a892dd21c03a528139c1e8d4e0e1264ac84">
+        <dex dex="/Users/pleng/Desktop/Healthy-Mobile-Application/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-25.2.0_cb4af79d1f25e287d5a6471bc90a47e44058cb13.jar" />
     </item>
     <item
         is-multidex="false"
@@ -189,6 +189,24 @@
         revision="24.0.3"
         sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
         <dex dex="/Users/pleng/Desktop/Healthy-Mobile-Application/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-24.2.1_18281012ead772c117288b2776959ccc30bc6ee0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/pleng/.gradle/caches/modules-2/files-2.1/com.android.support.constraint/constraint-layout-solver/1.1.3/bde0667d7414c16ed62d3cfe993cff7f9d732373/constraint-layout-solver-1.1.3.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="bde0667d7414c16ed62d3cfe993cff7f9d732373">
+        <dex dex="/Users/pleng/Desktop/Healthy-Mobile-Application/app/build/intermediates/pre-dexed/debug/constraint-layout-solver-1.1.3_7ff25f7e9f8d9d8ac28924cbf9a88482d16fbd98.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/pleng/Desktop/Healthy-Mobile-Application/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database-connection/11.8.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="ed04a0ae7198b0d5d0e965d6afdb0fe784dcfbee">
+        <dex dex="/Users/pleng/Desktop/Healthy-Mobile-Application/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-database-connection-11.8.0_faa06e5bd914bb6d45fd89a466631b250155c39b.jar" />
     </item>
     <item
         is-multidex="false"

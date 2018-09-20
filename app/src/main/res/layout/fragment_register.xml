@@ -1,41 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingTop="16dp" android:paddingLeft="16dp" android:paddingRight="16dp"
-    >
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
 
         <EditText
+            android:id="@+id/email_sign_up_page"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="50dp"
             android:drawableLeft="@drawable/person"
+            android:drawablePadding="10dp"
             android:hint="E-Mail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/email_sign_up_page" />
+            android:paddingBottom="20dp"
+            android:textColorHint="@color/HintColor"
+            app:layout_constraintBottom_toTopOf="@+id/password_id_sign_up_page"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/password_id_sign_up_page"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <EditText
-            android:inputType="textPassword"
-            android:drawableLeft="@drawable/lock"
-            android:layout_marginTop="10dp"
-            android:hint="@string/password"
-            android:layout_width="match_parent"
+            android:id="@+id/password_id_sign_up_page"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/password_id_sign_up_page" />
-        <EditText
-            android:inputType="textPassword"
-            android:drawableLeft="@drawable/lock"
-            android:layout_marginTop="10dp"
-            android:hint="Re-Password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/re_password_id_sign_up_page" />
-        <Button
+            android:layout_marginBottom="10dp"
             android:layout_marginTop="20dp"
-            android:text="@string/sign_up_now"
-            android:layout_width="match_parent"
+            android:drawableLeft="@drawable/lock"
+            android:drawablePadding="10dp"
+            android:textColorHint="@color/HintColor"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:paddingBottom="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/re_password_id_sign_up_page"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/re_password_id_sign_up_page"
+            app:layout_constraintTop_toBottomOf="@+id/email_sign_up_page" />
+
+        <EditText
+            android:id="@+id/re_password_id_sign_up_page"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/sign_up_button_sign_up_page" />
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp"
+            android:drawableLeft="@drawable/lock"
+            android:drawablePadding="10dp"
+            android:hint="Re-Password"
+            android:inputType="textPassword"
+            android:textColorHint="@color/HintColor"
+            android:paddingBottom="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/sign_up_button_sign_up_page"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/sign_up_button_sign_up_page"
+            app:layout_constraintTop_toBottomOf="@+id/password_id_sign_up_page" />
 
-        <FrameLayout android:id="@+id/register_view" android:layout_width="match_parent" android:layout_height="match_parent"></FrameLayout>
+        <Button
+            android:id="@+id/sign_up_button_sign_up_page"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:layout_marginBottom="249dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/activebutton"
+            android:text="@string/sign_up_now"
+            android:textColor="@color/SubText"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/re_password_id_sign_up_page" />
 
-</LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

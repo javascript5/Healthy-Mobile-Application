@@ -6,23 +6,35 @@
     <EditText
         android:drawableLeft="@drawable/heightbmi"
         android:hint="@string/height_bmi"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:inputType="numberDecimal"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:paddingBottom="20dp"
+        android:drawablePadding="10dp"
+        android:textColor="@color/TextColor"
+        android:textColorHint="@color/HintColor"
         android:id="@+id/heightBmi" />
     <EditText
         android:drawableLeft="@drawable/weightbmi"
         android:inputType="numberDecimal"
-        android:layout_marginTop="10dp"
         android:hint="@string/weight_bmi"
-        android:layout_width="match_parent"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:paddingBottom="20dp"
+        android:drawablePadding="10dp"
+        android:textColor="@color/TextColor"
+        android:textColorHint="@color/HintColor"
         android:id="@+id/weightBmi" />
     <Button
-        android:layout_marginTop="20dp"
         android:text="@string/calculate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="350dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/activebutton"
+        android:textColor="@color/SubText"
+        android:textSize="40px"
         android:id="@+id/calculateBmiButton" />
     <TextView
         android:id="@+id/result_text_bmi"

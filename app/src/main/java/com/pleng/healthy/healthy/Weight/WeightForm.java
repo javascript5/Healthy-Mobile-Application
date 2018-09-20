@@ -20,10 +20,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.pleng.healthy.healthy.CheckStatus;
 import com.pleng.healthy.healthy.R;
-import com.pleng.healthy.healthy.Weight.WeightFragment;
-import com.pleng.healthy.healthy.Weight.WeightStore;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -37,7 +34,7 @@ public class WeightForm extends Fragment {
     }
     TextView dateField, weight;
     Calendar mCurrentDate;
-    int year, month, day;
+    int mYear, mMonth, mDay;
     String dayStr, monthStr;
     FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
     String uid, dateStr, weightStr;
@@ -47,12 +44,10 @@ public class WeightForm extends Fragment {
         dateField = (TextView) getView().findViewById(R.id.date_for_weight_page);
         weight = (TextView) getView().findViewById(R.id.weight_for_weight_page);
         super.onActivityCreated(savedInstanceState);
-
-        //Get Current Date
         mCurrentDate = Calendar.getInstance();
-        day = mCurrentDate.get(Calendar.DAY_OF_MONTH);
-        month = mCurrentDate.get(Calendar.MONTH);
-        year = mCurrentDate.get(Calendar.YEAR);
+        mYear = mCurrentDate.get(Calendar.YEAR);
+        mMonth = mCurrentDate.get(Calendar.MONTH);
+        mDay = mCurrentDate.get(Calendar.DAY_OF_MONTH);
 
         //When Click and OnFoucus Date Field Show Date Picker
 
@@ -103,7 +98,6 @@ public class WeightForm extends Fragment {
                         @Override
                         public void onFailure(@NonNull Exception e) {
                             Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_LONG).show();
-                            Log.i("WeightForm", e.getMessage());
                         }
                     });
                 }
@@ -113,16 +107,18 @@ public class WeightForm extends Fragment {
 
     }
 
-    void datePickerPopup(final TextView field){
+    private void datePickerPopup(final TextView field){
+        //Get Current Date
+
+
 
         DatePickerDialog  datePickerDialog = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-
                 if(month < 10){
-                    monthStr = "0" + month;
+                    monthStr = "0" + (month + 1);
                 }else{
-                    monthStr = month+"";
+                    monthStr = (month + 1)+"";
                 }
 
                 if(dayOfMonth < 10){
@@ -130,9 +126,12 @@ public class WeightForm extends Fragment {
                 }else{
                     dayStr = dayOfMonth+"";
                 }
+                mYear = year;
+                mMonth = month;
+                mDay = dayOfMonth;
                 field.setText(year+"-"+monthStr+"-"+dayStr);
             }
-        }, year, month, day);
+        }, mYear, mMonth, mDay);
         datePickerDialog.show();
     }
 

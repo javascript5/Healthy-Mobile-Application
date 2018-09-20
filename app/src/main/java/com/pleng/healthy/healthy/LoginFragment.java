@@ -30,7 +30,7 @@ import static android.content.ContentValues.TAG;
 
 public class LoginFragment extends Fragment {
 
-    FirebaseUser _user = FirebaseAuth.getInstance().getCurrentUser();
+    private FirebaseUser _user = FirebaseAuth.getInstance().getCurrentUser();
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -45,6 +45,8 @@ public class LoginFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         Button loginButton = (Button) getView().findViewById(R.id.login_button);
+
+        //Check Loged In
         if(_user != null){
             getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view,new MenuFragment()).addToBackStack(null).commit();
         }
@@ -67,17 +69,20 @@ public class LoginFragment extends Fragment {
 
                 }else{
                     final FirebaseAuth mAuth = FirebaseAuth.getInstance();
-                    mAuth.signInWithEmailAndPassword(userTextFieldStr, passwordTextFieldStr).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                    mAuth.signInWithEmailAndPassword(userTextFieldStr, passwordTextFieldStr).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
-                        public void onSuccess(AuthResult authResult) {
-                            if(authResult.getUser().isEmailVerified()){
-                                Log.i("LOGIN", "Complete");
-                                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new MenuFragment()).addToBackStack(null).commit();
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            _user = FirebaseAuth.getInstance().getCurrentUser();
+                            if(task.isSuccessful()){
+                                if(_user.isEmailVerified()){
+                                    Log.i("LOGIN", "Complete");
+                                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new MenuFragment()).addToBackStack(null).commit();
+                                }else{
+                                    Toast.makeText(getActivity(), "กรุณายืนยัน E-Mail", Toast.LENGTH_SHORT).show();
+                                }
                             }else{
-                                Toast.makeText(getActivity(), "กรุณายืนยัน E-Mail", Toast.LENGTH_SHORT).show();
-                                Log.i("LOGIN", "กรุณายืนยัน E-Mail");
+                                Toast.makeText(getActivity(), "Loading", Toast.LENGTH_SHORT).show();
                             }
-
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override

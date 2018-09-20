@@ -4,7 +4,7 @@
     <string name="password">Password</string>
     <string name="name">Name</string>
     <string name="age">Age</string>
-    <string name="login">Login</string>
+    <string name="login">Sign In</string>
     <string name="sign_up">Sign Up</string>
     <string name="sign_up_now">Sign Up Now</string>
     <string name="back">Back</string>
