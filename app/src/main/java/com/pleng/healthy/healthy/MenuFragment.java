@@ -29,7 +29,6 @@ public class MenuFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        Log.i("MenuFragment", _user.isEmailVerified()+"");
         if(_user.isEmailVerified()) {
 
 
@@ -56,7 +55,7 @@ public class MenuFragment extends Fragment {
             });
 
         }else{
-            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new LoginFragment()).addToBackStack(null).commit();
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new LogoutFragment()).addToBackStack(null).commit();
         }
 
     }
