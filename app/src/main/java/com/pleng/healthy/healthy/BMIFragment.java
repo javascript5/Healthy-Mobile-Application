@@ -25,7 +25,14 @@ public class BMIFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        Button backBtn = (Button)getView().findViewById(R.id.bmi_back_to_menu);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new MenuFragment()).addToBackStack(null).commit();
 
+            }
+        });
 
         Button calculatorButton = (Button)getView().findViewById(R.id.calculateBmiButton);
         calculatorButton.setOnClickListener(new View.OnClickListener() {

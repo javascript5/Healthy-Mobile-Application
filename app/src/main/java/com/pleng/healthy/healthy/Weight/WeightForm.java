@@ -20,6 +20,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.pleng.healthy.healthy.MenuFragment;
 import com.pleng.healthy.healthy.R;
 
 import java.util.ArrayList;
@@ -59,7 +60,14 @@ public class WeightForm extends Fragment {
         });
 
 
+        Button backBtn = (Button)getView().findViewById(R.id.weightform_back_to_menu_button);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new MenuFragment()).addToBackStack(null).commit();
 
+            }
+        });
 
         Button saveWeightButton = (Button) getView().findViewById(R.id.save_weight_form);
         uid = currentFirebaseUser.getUid().toString();

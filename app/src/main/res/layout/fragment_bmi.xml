@@ -36,6 +36,15 @@
         android:textColor="@color/SubText"
         android:textSize="40px"
         android:id="@+id/calculateBmiButton" />
+    <Button
+        android:id="@+id/bmi_back_to_menu"
+        android:text="Back to menu"
+        android:layout_width="350dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/secondbutton"
+        android:textColor="@color/TextColor"
+        android:textSize="40px" />
     <TextView
         android:id="@+id/result_text_bmi"
         android:text="No Calculate"

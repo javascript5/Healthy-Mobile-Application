@@ -31,7 +31,7 @@ public class RegisterFragment extends Fragment{
     }
 
     boolean checkPassword(String passwrod, String rePassword){
-        if(passwrod.length() > 6){
+        if(passwrod.length() >= 6){
             if(passwrod.equals(rePassword)) {
                 return true;
             }else{
