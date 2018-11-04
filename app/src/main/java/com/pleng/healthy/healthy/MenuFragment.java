@@ -13,6 +13,8 @@ import android.widget.ListView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.pleng.healthy.healthy.AlarmClock.SleepForm;
+import com.pleng.healthy.healthy.AlarmClock.SleepFragment;
 import com.pleng.healthy.healthy.Weight.WeightForm;
 import com.pleng.healthy.healthy.Weight.WeightFragment;
 
@@ -24,7 +26,9 @@ public class MenuFragment extends Fragment {
     public MenuFragment(){
         menu.add("BMI");
         menu.add("Weight");
+        menu.add("Sleep");
         menu.add("Sign Out");
+
     }
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -48,7 +52,10 @@ public class MenuFragment extends Fragment {
                         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new BMIFragment()).addToBackStack(null).commit();
                     } else if (menuPosition.equals("Sign Out")) {
                         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new LogoutFragment()).addToBackStack(null).commit();
-                    } else {
+                    } else if (menuPosition.equals("Sleep")) {
+                        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new SleepFragment()).addToBackStack(null).commit();
+                    }
+                    else {
                         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new WeightFragment()).addToBackStack(null).commit();
                     }
                 }
