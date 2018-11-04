@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout3"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <EditText
+        android:id="@+id/fragment_sleep_form_datetime"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:drawablePadding="10dp"
+        android:focusable="false"
+        android:hint="Day / Month / Year"
+        android:paddingBottom="20dp"
+        android:textColor="@color/TextColor"
+        android:textColorHint="@color/HintColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_sleep_form_wakeUpTime" />
+
+    <EditText
+        android:id="@+id/fragment_sleep_form_sleepTime"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:drawablePadding="10dp"
+        android:focusable="false"
+        android:hint="เวลาเข้านอน"
+        android:paddingBottom="20dp"
+        android:textColor="@color/TextColor"
+        android:textColorHint="@color/HintColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/fragment_sleep_form_wakeUpTime"
+        android:layout_width="350dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="24dp"
+        android:drawablePadding="10dp"
+        android:focusable="false"
+        android:hint="เวลาตื่น"
+        android:paddingBottom="20dp"
+        android:textColor="@color/TextColor"
+        android:textColorHint="@color/HintColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_sleep_form_sleepTime" />
+
+    <Button
+        android:id="@+id/fragment_sleep_form_backToSleepListView"
+        android:layout_width="350dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/secondbutton"
+        android:text="Back to menu"
+        android:textColor="@color/TextColor"
+        android:textSize="40px"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_sleep_form_addTimeButton" />
+
+    <Button
+        android:id="@+id/fragment_sleep_form_addTimeButton"
+        android:layout_width="350dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/activebutton"
+        android:text="Add Now"
+        android:textColor="@color/SubText"
+        android:textSize="40px"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_sleep_form_datetime" />
+
+</android.support.constraint.ConstraintLayout>

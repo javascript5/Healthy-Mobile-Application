@@ -20,6 +20,12 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
+
 import static android.R.attr.onClick;
 import static android.content.ContentValues.TAG;
 
@@ -43,6 +49,9 @@ public class LoginFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable final Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+
+
 
         Button loginButton = (Button) getView().findViewById(R.id.login_button);
 
