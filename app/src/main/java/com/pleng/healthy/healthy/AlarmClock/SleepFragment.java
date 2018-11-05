@@ -3,10 +3,13 @@ package com.pleng.healthy.healthy.AlarmClock;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -29,6 +32,14 @@ public class SleepFragment extends Fragment {
     private ArrayList<SleepStore> sleepStore = new ArrayList<SleepStore>();
     private DBHelper myDB;
     private List<SleepStore> sleepList = new ArrayList<>();
+    private SleepForm sleepForm;
+    private Bundle bundle;
+    private SleepForm obj;
+    private FragmentManager fm;
+    private FragmentTransaction ft;
+    public SleepFragment() {
+    }
+
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -50,6 +61,23 @@ public class SleepFragment extends Fragment {
         });
 
         sleepListView.setAdapter(sleepConfigItems);
+        sleepListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                bundle = new Bundle();
+                bundle.putString("bundleDate", sleepList.get(position).getDate());
+                bundle.putString("bundleWakeUpTime", sleepList.get(position).getWakeUpTime());
+                bundle.putString("bundleSleepTime", sleepList.get(position).getSleepTime());
+
+                fm = getActivity().getSupportFragmentManager();
+                ft = fm.beginTransaction();
+                obj = new SleepForm();
+                obj.setArguments(bundle);
+
+                ft.replace(R.id.main_view, obj);
+                ft.commit();
+            }
+        });
 
     }
 

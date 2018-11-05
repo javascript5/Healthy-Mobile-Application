@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -39,6 +40,8 @@ public class SleepForm extends Fragment{
     private ParsePosition pp1,pp2,pp3,pp4;
     private SleepStore sleepStore;
     private DBHelper myDB;
+    private boolean passingValue;
+    private Bundle bundle;
     public SleepForm(){
         mCurrentDate = Calendar.getInstance();
         mYear = mCurrentDate.get(Calendar.YEAR);
@@ -46,6 +49,8 @@ public class SleepForm extends Fragment{
         mDay = mCurrentDate.get(Calendar.DAY_OF_MONTH);
 
     }
+
+
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -57,6 +62,17 @@ public class SleepForm extends Fragment{
         addTimeButton = (Button) getView().findViewById(R.id.fragment_sleep_form_addTimeButton);
         backToListViewButton = (Button) getView().findViewById(R.id.fragment_sleep_form_backToSleepListView);
 
+        if(getArguments() != null){
+            bundle = getArguments();
+
+            passingValue = true;
+            dateField.setText(bundle.getString("bundleDate"));
+            wakeUpTime.setText(bundle.getString("bundleWakeUpTime"));
+            sleepTime.setText(bundle.getString("bundleSleepTime"));
+            differenceTime = FindTheDifferenceTime(sleepTime.getText().toString(), wakeUpTime.getText().toString());
+            sleepStore = new SleepStore(dateField.getText().toString() , sleepTime.getText().toString(), wakeUpTime.getText().toString(), differenceTime);
+
+        }
 
 
         dateField.setOnClickListener(new View.OnClickListener() {
@@ -97,7 +113,11 @@ public class SleepForm extends Fragment{
                     if(!differenceTime.isEmpty()) {
                         sleepStore = new SleepStore(dateStr, time1,time2,differenceTime);
                         sleepStore.setDifferenceTime(differenceTime);
-                        myDB.addTime(sleepStore);
+                        if(passingValue) {
+                            myDB.updateTime(sleepStore);
+                        }else {
+                            myDB.addTime(sleepStore);
+                        }
                         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new SleepFragment()).addToBackStack(null).commit();
                     }
 
@@ -119,6 +139,11 @@ public class SleepForm extends Fragment{
             }
         });
     }
+
+
+
+
+
 
      private String FindTheDifferenceTime(String timeLocal1, String timeLocal2){
 

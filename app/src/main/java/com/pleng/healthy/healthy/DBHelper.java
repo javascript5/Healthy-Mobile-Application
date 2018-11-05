@@ -25,7 +25,7 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String CREATE_FRIEND_TABLE = "CREATE TABLE time(date VARCHAR(200), time1 VARCHAR(200), time2 VARCHAR(200), differenceTime VARCHAR(200))";
+        String CREATE_FRIEND_TABLE = "CREATE TABLE time(date VARCHAR(200) UNIQUE, time1 VARCHAR(200), time2 VARCHAR(200), differenceTime VARCHAR(200))";
         db.execSQL(CREATE_FRIEND_TABLE);
     }
 
@@ -47,7 +47,24 @@ public class DBHelper extends SQLiteOpenHelper {
             values.put("time1", sleepStore.getSleepTime());
             values.put("time2", sleepStore.getWakeUpTime());
             values.put("differenceTime", sleepStore.getDifferenceTime());
-            sqLiteDatabase.insert("time", null, values);
+            sqLiteDatabase.insertOrThrow("time", null, values);
+            Toast.makeText(context,"บันทึกข้อมูลสำเร็จ", Toast.LENGTH_SHORT).show();
+            sqLiteDatabase.close();
+        }catch (SQLiteConstraintException e){
+            Log.i("Time", e.getMessage());
+            Toast.makeText(context,"บันทึกข้อมูลไม่สำเร็จ", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void updateTime(SleepStore sleepStore) {
+        try{
+            sqLiteDatabase = this.getWritableDatabase();
+            ContentValues values = new ContentValues();
+            values.put("date", sleepStore.getDate());
+            values.put("time1", sleepStore.getSleepTime());
+            values.put("time2", sleepStore.getWakeUpTime());
+            values.put("differenceTime", sleepStore.getDifferenceTime());
+            sqLiteDatabase.update("time", values, "date=" + "'" + sleepStore.getDate() + "'", null);
             Toast.makeText(context,"บันทึกข้อมูลสำเร็จ", Toast.LENGTH_SHORT).show();
             sqLiteDatabase.close();
         }catch (SQLiteConstraintException e){
