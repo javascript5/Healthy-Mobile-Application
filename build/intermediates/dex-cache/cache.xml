@@ -30,6 +30,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="/Users/pleng/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.12.0/b36f4a04584c0fb0d9af2d3401cdff8dacb1ea54/okhttp-3.12.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="b36f4a04584c0fb0d9af2d3401cdff8dacb1ea54">
+        <dex dex="/Users/pleng/Desktop/Healthy-Mobile-Application/app/build/intermediates/pre-dexed/debug/okhttp-3.12.0_c3148065ec52971208f8f3747a3773b60034a4d1.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/Users/pleng/Desktop/Healthy-Mobile-Application/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/11.8.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"
@@ -54,6 +63,15 @@
         revision="24.0.3"
         sha1="ee394a892dd21c03a528139c1e8d4e0e1264ac84">
         <dex dex="/Users/pleng/Desktop/Healthy-Mobile-Application/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-25.2.0_cb4af79d1f25e287d5a6471bc90a47e44058cb13.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/pleng/.gradle/caches/modules-2/files-2.1/com.mcxiaoke.volley/library/1.0.19/a8f23f65fc1e522ee4a1a697ee569901a46741fa/library-1.0.19.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="a8f23f65fc1e522ee4a1a697ee569901a46741fa">
+        <dex dex="/Users/pleng/Desktop/Healthy-Mobile-Application/app/build/intermediates/pre-dexed/debug/library-1.0.19_3905edc09361d5f19db4e5d061d009906cc4a48f.jar" />
     </item>
     <item
         is-multidex="false"
@@ -120,15 +138,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="/Users/pleng/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.6.0/98476622f10715998eacf9240d6b479f12c66143/okio-1.6.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.3"
-        sha1="98476622f10715998eacf9240d6b479f12c66143">
-        <dex dex="/Users/pleng/Desktop/Healthy-Mobile-Application/app/build/intermediates/pre-dexed/debug/okio-1.6.0_1a342ed99cf040238f6ad7e47bbfd9b3fec50588.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="/Users/pleng/Desktop/Healthy-Mobile-Application/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
@@ -180,6 +189,15 @@
         revision="24.0.3"
         sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
         <dex dex="/Users/pleng/Desktop/Healthy-Mobile-Application/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-24.2.1_50c55289159f0870f3c2525a7f1f05db16ceeb42.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/pleng/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.15.0/bc28b5a964c8f5721eb58ee3f3c47a9bcbf4f4d8/okio-1.15.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="bc28b5a964c8f5721eb58ee3f3c47a9bcbf4f4d8">
+        <dex dex="/Users/pleng/Desktop/Healthy-Mobile-Application/app/build/intermediates/pre-dexed/debug/okio-1.15.0_29c34956c67a6c1a30fdcab669fb735843a649f4.jar" />
     </item>
     <item
         is-multidex="false"
